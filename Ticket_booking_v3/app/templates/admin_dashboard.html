@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tableau de Bord Administrateur</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            background-color: #444;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 0;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #ff5722;
+            outline: none;
+        }
+
+        .dashboard {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #e64a19;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tableau de Bord Administrateur</h1>
+        <nav>
+            <ul>
+                <li><a href="evenements.html">Gestion des Événements</a></li>
+                <li><a href="user_dashboard.html">Gestion des Utilisateurs</a></li>
+                <li><a href="statistiques.html">Statistiques</a></li>
+                <li><a href="deconnexion.html">Déconnexion</a></li>
+                <li><a href="accueil.html">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h2>Gestion des événements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Événement</th>
+                        <th>Date</th>
+                        <th>Lieu</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Concert Jazz</td>
+                        <td>15 Juin 2025</td>
+                        <td>Montréal</td>
+                        <td class="actions">
+                            <button type="button">Modifier</button>
+                            <button type="button">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Festival Technologique</td>
+                        <td>22 Juillet 2025</td>
+                        <td>Dakar</td>
+                        <td class="actions">
+                            <button type="button">Modifier</button>
+                            <button type="button">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Exposition des tulipes</td>
+                        <td>3 Août 2025</td>
+                        <td>Ottawa</td>
+                        <td class="actions">
+                            <button type="button">Modifier</button>
+                            <button type="button">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Statistiques</h2>
+            <p>Nombre de billets vendus : <strong>350</strong></p>
+            <p>Utilisateurs inscrits : <strong>120</strong></p>
+
+            <h2>Gestion des utilisateurs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Rôle</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jean Dupont</td>
+                        <td>jean.dupont@email.com</td>
+                        <td>Utilisateur</td>
+                        <td class="actions">
+                            <button type="button">Modifier</button>
+                            <button type="button">Supprimer</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sophie Martin</td>
+                        <td>sophie.martin@email.com</td>
+                        <td>Administrateur</td>
+                        <td class="actions">
+                            <button type="button">Modifier</button>
+                            <button type="button">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Événements. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

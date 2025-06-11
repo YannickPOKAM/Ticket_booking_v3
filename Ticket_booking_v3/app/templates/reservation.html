@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Réservation de Billet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+	
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Réservation de Billet</h1>
+    
+	<nav>
+            <ul>
+                <li><a href="{{ url_for('main.accueil') }}">Accueil</a></li>
+                <li><a href="{{ url_for('booking.reservation') }}" aria-current="page">Réservation</a></li>				
+				<li><a href="{{ url_for('main.contact') }}" >Contact</a></li>
+				<li><a href="{{ url_for('booking.paiement') }}">Paiement</a></li>                
+                <li><a href="{{ url_for('auth.connexion') }}">Connexion</a></li>
+				<li><a href="{{ url_for('auth.inscription') }}" aria-current="page">Inscription</a></li>
+                <li><a href="/user_dashboard">Tableau de bord</a></li>
+                <li><a href="/user_profil">Profil</a></li>
+            </ul>
+        </nav>
+</header>
+
+<main role="main" class="reservation-section">
+  <section aria-labelledby="reservation-title">
+    <h1 id="reservation-title">Réservez votre place</h1>
+
+    <form action="/confirmation.html" method="POST" class="reservation-form" novalidate>
+      <div class="form-group">
+        <label for="event">Événement</label>
+        <select id="event" name="event" required>
+          <option value="" disabled selected>-- Sélectionnez un événement --</option>
+          <option value="concert">Concert Jazz – 15 Juin 2025</option>
+          <option value="festival">Festival Technologique – 22 Juillet 2025</option>
+          <option value="exposition">Exposition des tulipes – 3 Août 2025</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Nom complet</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Adresse email</label>
+        <input type="email" id="email" name="email" placeholder="Votre email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="ticket">Type de billet</label>
+        <select id="ticket" name="ticket" required>
+          <option value="" disabled selected>-- Sélectionnez --</option>
+          <option value="standard">Standard</option>
+          <option value="vip">VIP</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="payment">Méthode de paiement</label>
+        <select id="payment" name="payment" required>
+          <option value="" disabled selected>-- Sélectionnez --</option>
+          <option value="credit">Carte bancaire</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Réserver maintenant</button>
+    </form>
+  </section>
+</main>
+
+
+<footer>
+    <div class="footer-links">
+        <a href="{{ url_for('main.contact') }}">Contact</a>
+        <a href="#">Mentions légales</a>
+    </div>
+    <p>&copy; 2025 Événements. Tous droits réservés.</p>
+</footer>
+</body>
+</html>

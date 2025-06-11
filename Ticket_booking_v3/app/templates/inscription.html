@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inscription - Événements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #ff5722;
+            outline: none;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form div.form-group {
+            margin-bottom: 15px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        form input:focus {
+            border-color: #ff5722;
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover,
+        form button:focus {
+            background-color: #e64a19;
+            outline: none;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: none;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #333;
+            color: white;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Événements</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('main.accueil') }}">Accueil</a></li>
+            <li><a href="{{ url_for('booking.reservation') }}">Réservation</a></li>                
+            <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('booking.paiement') }}">Paiement</a></li>                
+            <li><a href="{{ url_for('auth.connexion') }}">Connexion</a></li>
+            <li><a href="{{ url_for('auth.inscription') }}" aria-current="page">Inscription</a></li>
+            <li><a href="/user_dashboard">Tableau de bord</a></li>
+            <li><a href="/user_profil">Profil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main role="main">
+    <form id="signupForm" novalidate>
+        <h2>Inscription</h2>
+        <div class="error-message" id="errorMsg">Les mots de passe ne correspondent pas.</div>
+
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required />
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required />
+        </div>
+
+        <div class="form-group">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="motdepasse">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse" required />
+        </div>
+
+        <div class="form-group">
+            <label for="confirm_motdepasse">Confirmer le mot de passe :</label>
+            <input type="password" id="confirm_motdepasse" name="confirm_motdepasse" required />
+        </div>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <div id="message" role="alert" aria-live="assertive" style="text-align:center; margin-top: 15px;"></div>
+</main>
+
+<footer>
+    <p>© 2025 Événements. Tous droits réservés.</p>
+</footer>
+
+<script>
+    const form = document.getElementById('signupForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function(event) {
+        const pass = document.getElementById('motdepasse').value;
+        const confirmPass = document.getElementById('confirm_motdepasse').value;
+
+        if (pass !== confirmPass) {
+            event.preventDefault();
+            errorMsg.style.display = 'block';
+        } else {
+            errorMsg.style.display = 'none';
+            // Tu peux ajouter ici la soumission AJAX si besoin
+        }
+    });
+</script>
+
+</body>
+</html>

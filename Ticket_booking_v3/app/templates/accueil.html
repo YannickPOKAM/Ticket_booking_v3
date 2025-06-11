@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Accueil - Événements</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenue aux Événements</h1>
+        
+		 <nav>
+            <ul>
+                <li><a href="{{ url_for('main.accueil') }}" aria-current="page">Accueil</a></li>
+                <li><a href="{{ url_for('booking.reservation') }}">Réservation</a></li>
+				<li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+				<li><a href="{{ url_for('booking.paiement') }}">Paiement</a></li>                
+                <li><a href="{{ url_for('auth.connexion') }}">Connexion</a></li>
+				<li><a href="{{ url_for('auth.inscription') }}" aria-current="page">Inscription</a></li>
+                <li><a href="/user_dashboard">Tableau de bord</a></li>
+                <li><a href="/user_profil">Profil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <main role="main">
+  <section class="events" aria-labelledby="titre-evenements">
+    <h1 id="titre-evenements">Événements à venir</h1>
+
+    <article class="event">
+      <img src="{{ url_for('static', filename='images/concert.png') }}" alt="Affiche du Concert Jazz à Montréal" />
+      <div class="event-info">
+        <h2>Concert de Jazz</h2>
+        <p><time datetime="2025-06-15">15 Juin 2025</time> – Salle des fêtes, Montréal</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">Détails</button>
+        <div class="details" hidden>
+          <p><strong>Heure :</strong> 17H</p>
+          <p><strong>Description :</strong> Une soirée exceptionnelle avec des musiciens talentueux.</p>
+        </div>
+        <button type="button" aria-label="Réserver une place pour le Concert Jazz">Réserver</button>
+      </div>
+    </article>
+
+    <article class="event">
+      <img src="{{ url_for('static', filename='images/festival.png') }}" alt="Affiche du Festival Technologique à Dakar" />
+      <div class="event-info">
+        <h2>Festival Technologique</h2>
+        <p><time datetime="2025-07-22">22 Juillet 2025</time> – Centre technologique, Dakar</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">Détails</button>
+        <div class="details" hidden>
+          <p><strong>Heure :</strong> 17H</p>
+          <p><strong>Description :</strong> Une discussion sur les nouvelles technologies de l'information et l'intelligence artificielle.</p>
+        </div>
+        <button type="button" aria-label="Réserver une place pour le Festival Technologique">Réserver</button>
+      </div>
+    </article>
+
+    <article class="event">
+      <img src="{{ url_for('static', filename='images/tulipes.png') }}" alt="Affiche de l'Exposition des tulipes à Ottawa" />
+      <div class="event-info">
+        <h2>Exposition des tulipes</h2>
+        <p><time datetime="2025-08-03">3 Août 2025</time> – Centre Bell, Ottawa</p>
+        <button class="toggle-btn" onclick="toggleDetails(this)">Détails</button>
+        <div class="details" hidden>
+          <p><strong>Heure :</strong> 17H</p>
+          <p><strong>Description :</strong> Une exposition hors pair sur les tulipes.</p>
+        </div>
+        <button type="button" aria-label="Réserver une place pour l'Exposition des tulipes">Réserver</button>
+      </div>
+    </article>
+  </section>
+</main>
+
+<script>
+  function toggleDetails(button) {
+    const details = button.nextElementSibling;
+    if (details.hidden) {
+      details.hidden = false;
+      button.textContent = "Masquer";
+    } else {
+      details.hidden = true;
+      button.textContent = "Détails";
+    }
+  }
+</script>
+
+
+
+
+  
+	<footer>
+    <div class="footer-links">
+        <a href="{{ url_for('main.contact') }}">Contact</a>
+        <a href="#">Mentions légales</a>
+    </div>
+    <p>&copy; 2025 Événements. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

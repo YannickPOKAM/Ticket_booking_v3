@@ -1,0 +1,14 @@
+Flask
+Flask-SQLAlchemy
+Flask-CORS
+Flask-Talisman
+PyJWT
+Werkzeug
+Flask-Login
+Flask-Migrate
+flask-jwt-extended
+Flask-RESTful
+gunicorn
+python-dotenv
+bcrypt
+pymysql

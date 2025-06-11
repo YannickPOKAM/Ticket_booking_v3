@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liste des événements</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+      
+  
+  </style>
+</head>
+<body>
+<header>
+  <h1>Bienvenue aux Événements</h1>
+  
+		<nav>
+            <ul>
+                <li><a href="{{ url_for('main.accueil') }}" aria-current="page">Accueil</a></li>
+                <li><a href="{{ url_for('main.evenements') }}" aria-current="page">Événements</a></li>
+				<li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('booking.reservation') }}">Réservation</a></li>
+				<li><a href="{{ url_for('booking.paiement') }}">Paiement</a></li>                
+                <li><a href="{{ url_for('auth.connexion') }}">Connexion</a></li>
+				<li><a href="{{ url_for('auth.inscription') }}" aria-current="page">Inscription</a></li>
+                <li><a href="/user_dashboard">Tableau de bord</a></li>
+                <li><a href="/user_profil">Profil</a></li>
+            </ul>
+        </nav>
+</header>
+
+<main role="main">
+  <h1>Liste des événements</h1>
+
+  <div class="event">
+    <h2>Concert de Jazz</h2>
+    <button class="toggle-btn" onclick="toggleDetails(this)">Détails</button>
+    <div class="details">
+      <p><strong>Date :</strong> 15 juin 2025</p>
+      <p><strong>Lieu :</strong> Salle des fêtes, Montréal</p>
+      <p><strong>Heure :</strong> 17H</p>
+      <p><strong>Description :</strong> Une soirée exceptionnelle avec des musiciens talentueux.</p>
+    </div>
+  </div>
+
+  <div class="event">
+    <h2>Festival Technologique</h2>
+    <button class="toggle-btn" onclick="toggleDetails(this)">Détails</button>
+    <div class="details">
+      <p><strong>Date :</strong> 22 juillet 2025</p>
+      <p><strong>Lieu :</strong> Centre technologique, Dakar</p>
+      <p><strong>Heure :</strong> 17H</p>
+      <p><strong>Description :</strong> Une discussion sur les nouvelles technologies de l'information et l'intelligence artificielle.</p>
+    </div>
+  </div>
+
+  <div class="event">
+    <h2>Exposition des tulipes</h2>
+    <button class="toggle-btn" onclick="toggleDetails(this)">Détails</button>
+    <div class="details">
+      <p><strong>Date :</strong> 3 août 2025</p>
+      <p><strong>Lieu :</strong> Centre Bell, Ottawa</p>
+      <p><strong>Heure :</strong> 17H</p>
+      <p><strong>Description :</strong> Une exposition hors pair sur les tulipes.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Événements. Tous droits réservés.</p>
+</footer>
+
+<!--script>
+  function toggleDetails(button) {
+    const details = button.nextElementSibling;
+    if (details.style.display === "block") {
+      details.style.display = "none";
+      button.textContent = "Détails";
+    } else {
+      details.style.display = "block";
+      button.textContent = "Masquer";
+    }
+  }
+</script-->
+
+</body>
+</html>

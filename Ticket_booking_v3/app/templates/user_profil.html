@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Profil Utilisateur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #ff5722;
+            outline: none;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .profil-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .profil-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profil-form label {
+            display: block;
+            margin: 12px 0 5px;
+        }
+
+        .profil-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .profil-form button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .profil-form button:hover,
+        .profil-form button:focus {
+            background-color: #e64a19;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mon Profil</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('main.accueil') }}">Accueil</a></li>
+            <li><a href="{{ url_for('booking.reservation') }}">Réservation</a></li>
+            <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('booking.paiement') }}">Paiement</a></li>
+            <li><a href="{{ url_for('auth.connexion') }}">Connexion</a></li>
+            <li><a href="{{ url_for('auth.inscription') }}">Inscription</a></li>
+            <li><a href="/user_dashboard">Tableau de bord</a></li>
+            <li><a href="{{ url_for('main.user_profil') }}" aria-current="page">Profil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <form class="profil-form" action="update_profil.php" method="POST" novalidate>
+        <h2>Modifier les Informations</h2>
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" id="motdepasse" name="motdepasse" placeholder="Nouveau mot de passe">
+
+        <button type="submit">Sauvegarder</button>
+    </form>
+</main>
+
+<footer>
+    <p>© 2025 Événements. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

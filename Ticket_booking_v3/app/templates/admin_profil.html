@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profil Administrateur</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            background-color: #444;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 0;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #ff5722;
+            outline: none;
+        }
+
+        nav ul li a[aria-current="page"] {
+            text-decoration: underline;
+            cursor: default;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            background-color: white;
+            margin: 30px auto;
+            padding: 25px 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 6px;
+        }
+
+        .profile-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .profile-info label {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .profile-info input {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .profile-info input[readonly] {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover,
+        button:focus {
+            background-color: #e64a19;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Profil Administrateur</h1>
+        <nav>
+            <ul>
+                <li><a href="admin_dashboard.html">Tableau de Bord</a></li>
+                <li><a href="admin_profil.html" aria-current="page">Profil</a></li>
+                <li><a href="parametres.html">Paramètres</a></li>
+                <li><a href="deconnexion.html">Déconnexion</a></li>
+                <li><a href="accueil.html">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-container">
+            <h2>Informations du Profil</h2>
+            <form id="profileForm">
+                <div class="profile-info">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" value="admin" readonly />
+
+                    <label for="fullname">Nom complet</label>
+                    <input type="text" id="fullname" name="fullname" value="Sophie Martin" />
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="sophie.martin@email.com" />
+
+                    <label for="role">Rôle</label>
+                    <input type="text" id="role" name="role" value="Administrateur" readonly />
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit">Mettre à jour le profil</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Événements. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Exemple simple de gestion du formulaire
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Profil mis à jour avec succès !');
+            // Ici, tu peux ajouter un fetch() pour envoyer les données au backend via API
+        });
+    </script>
+
+</body>
+</html>
+

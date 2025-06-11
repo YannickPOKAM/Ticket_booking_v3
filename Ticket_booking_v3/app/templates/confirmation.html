@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Confirmation de réservation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: #ff5722;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 40px 20px;
+        }
+
+        .confirmation-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .confirmation-container h1 {
+            color: #ff5722;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .confirmation-container p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: left;
+            color: #555;
+        }
+
+        .details p {
+            margin: 8px 0;
+        }
+
+        .details strong {
+            display: inline-block;
+            width: 110px;
+            font-weight: 600;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover,
+        .button:focus {
+            background-color: #e64a19;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Événements</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('main.accueil') }}">Accueil</a></li>
+            <li><a href="{{ url_for('booking.reservation') }}">Réservation</a></li>
+            <li><a href="{{ url_for('auth.connexion') }}">Connexion</a></li>
+            <li><a href="{{ url_for('auth.inscription') }}">Inscription</a></li>
+            <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+            <li><a href="/user_dashboard">Tableau de bord</a></li>
+            <li><a href="/user_profil">Profil</a></li>
+            <li><a href="{{ url_for('main.confirmation') }}">Confirmation</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="confirmation-container" role="main" aria-labelledby="confirmation-title">
+        <h1 id="confirmation-title">🎟️ Réservation Confirmée !</h1>
+        <p>Merci pour votre réservation. Voici les détails :</p>
+
+        <div class="details">
+            <p><strong>Événement :</strong> Concert Live au Théâtre</p>
+            <p><strong>Date :</strong> 15 juillet 2025</p>
+            <p><strong>Heure :</strong> 20h00</p>
+            <p><strong>Place :</strong> Rang B, Siège 12</p>
+            <p><strong>Nom :</strong> Jean Dupont</p>
+            <p><strong>Email :</strong> jean.dupont@email.com</p>
+        </div>
+
+        <a href="{{ url_for('main.accueil') }}" class="button">Retour à l'accueil</a>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Événements. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
